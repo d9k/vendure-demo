@@ -30,6 +30,11 @@ export const config: VendureConfig = {
             adminApiDebug: true,
             shopApiDebug: true,
         } : {}),
+        cors: {
+            methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+            credentials: true,
+            preflightContinue: true,
+        },
     },
     authOptions: {
         tokenMethod: ['bearer', 'cookie'],
