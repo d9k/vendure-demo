@@ -33,8 +33,21 @@ export const config: VendureConfig = {
         cors: {
             // Access to fetch at 'http://localhost:3001/admin-api?languageCode=en' from origin 'http://localhost:5173' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'
             // origin: "*",
-            origin: ["http://localhost:5173", "http://localhost:3001"],
+            origin: [
+                /** Dashboard */
+                "http://localhost:5173",
 
+                /** http://localhost:3001/dashboard - reserved */
+                // self not needed?
+                // "http://localhost:3001",
+
+                /** Local shop with cart demo */
+                "http://localhost:3002",
+
+                /** https://github.com/itswadesh/svelte-commerce */
+                "http://localhost:3000",
+                "http://127.0.0.1:3000",
+            ],
             methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
             credentials: true,
 
