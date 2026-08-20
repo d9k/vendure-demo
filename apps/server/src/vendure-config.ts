@@ -31,9 +31,17 @@ export const config: VendureConfig = {
             shopApiDebug: true,
         } : {}),
         cors: {
-            methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+            // Access to fetch at 'http://localhost:3001/admin-api?languageCode=en' from origin 'http://localhost:5173' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'
+            // origin: "*",
+            origin: ["http://localhost:5173", "http://localhost:3001"],
+
+            methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
             credentials: true,
-            preflightContinue: true,
+
+            // Disabled due to 405 error ("Apollo Server supports only GET/POST requests")
+            // preflightContinue: true,
+
+            optionsSuccessStatus: 200,
         },
     },
     authOptions: {
